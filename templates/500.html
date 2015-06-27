@@ -1,0 +1,7 @@
+﻿{% extends "layout.html" %}
+{% block title %}500 Error{% endblock %}
+{% block body %}
+    <h1>Internal Server Error</h1>
+    <p>Hmm, we seem to be experiencing problems. Please give us a few minutes to get things worked out.</p>
+    <p>Perhaps you should <a href="{{ url_for('home') }}">start over.</a></p>
+{% endblock %}

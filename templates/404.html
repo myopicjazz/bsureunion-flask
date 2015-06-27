@@ -1,0 +1,7 @@
+﻿{% extends "layout.html" %}
+{% block title %}404 Error{% endblock %}
+{% block body %}
+    <h1>Page Not Found</h1>
+    <p>What you were looking for is just not here.</p>
+    <p>We suggest you <a href="{{ url_for('home') }}">start over.</a></p>
+{% endblock %}
