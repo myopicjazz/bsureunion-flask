@@ -9,18 +9,17 @@ app = Flask(__name__)
 
 app.secret_key = 'h@t3m0ng5TQ_'
 
-app.config["MAIL_SERVER"] = "smtp.gmail.com"
-app.config["MAIL_PORT"] = 465
-app.config["MAIL_USE_SSL"] = True
-app.config["MAIL_USERNAME"] = 'myopicjazz@gmail.com'
-app.config["MAIL_PASSWORD"] = 'dsokuyzpcqmaqskz'
+app.config['MAIL_SERVER'] = "smtp.gmail.com"
+app.config['MAIL_PORT'] = 465
+app.config['MAIL_USE_SSL'] = True
+app.config['MAIL_USERNAME'] = 'myopicjazz@gmail.com'
+app.config['MAIL_PASSWORD'] = 'dsokuyzpcqmaqskz'
+app.config['RECAPTCHA_USE_SSL'] = False
+app.config['RECAPTCHA_PUBLIC_KEY'] = '6Lcr9QgTAAAAADljN1lLogj0ijs4DqNq2OmG-tPP'
+app.config['RECAPTCHA_PRIVATE_KEY']= '6Lcr9QgTAAAAADjOzzijXkIh5HapfrBU4sxSsku2'
+app.config['RECAPTCHA_OPTIONS'] = {'theme': 'white'}
 
 SECURITY_EMAIL_SENDER = 'myopicjazz@gmail.com'
-
-RECAPTCHA_USE_SSL = False
-RECAPTCHA_PUBLIC_KEY = '6Lcr9QgTAAAAADljN1lLogj0ijs4DqNq2OmG-tPP'
-RECAPTCHA_PRIVATE_KEY = '6Lcr9QgTAAAAADjOzzijXkIh5HapfrBU4sxSsku2'
-RECAPTCHA_OPTIONS = {'theme': 'white'}
 
 mail.init_app(app)
 
