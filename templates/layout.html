@@ -107,7 +107,7 @@
               <a href="{{ url_for('galleries') }}">Galleries</a>
             {% endif %}  
         </li>
-        <li {% if request.path == '/lost_and_found/' %}class="active"}>
+        <li {% if request.path == '/lost_and_found/' %}class="active">
               <a href="#">Lost And Found</a>
             {% else %}>
               <a href="{{ url_for('lost_and_found') }}">Lost And Found</a>
