@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
 <!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
 <!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
@@ -47,24 +47,24 @@
     or request.path == '/tulsa2013/' or request.path == '/reunion2014/' or request.path == '/springdale2015/' %}
         <script src="../static/js/jquery.lightbox-0.5.min.js"></script>
         <script>
-	$(function() {
-		$('#gallery a').lightBox({fixedNavigation:true});
-	});
-	</script>
+	        $(function() {
+		        $('#gallery a').lightBox({fixedNavigation:true});
+	        });
+	    </script>
     {% endif %}
 
     <script>
-    $(function () {
-        $("#slider").responsiveSlides({
-            auto: true,
-            pager: false,
-            nav: true,
-            speed: 800,
-            maxwidth: 960,
-            namespace: "centered-btns"
+        $(function () {
+            $("#slider").responsiveSlides({
+                auto: true,
+                pager: false,
+                nav: true,
+                speed: 800,
+                maxwidth: 960,
+                namespace: "centered-btns"
+            });
         });
-    });
-  </script>
+    </script>
     
 </head>
 <body>
