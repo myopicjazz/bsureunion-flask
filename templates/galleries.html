@@ -1,0 +1,34 @@
+﻿{% extends "layout.html" %}
+{% block title %}Galleries{% endblock %}
+{% block keywords %}"Baptist Student Union photographs, BSU pictures"{% endblock %}
+{% block description %}"An asssortment of vintage and recent pictures from the Northeastern State University Baptist Student Union in Tahlequah"{% endblock %}
+{% block body %}
+    <h2 class="heading">GALLERIES</h2>
+	<div class="content">
+    <h3 class="center">Click a pic to view photo gallleries</h3>
+	    <figure>
+		    <a href="{{ url_for ('vintage') }}"><img src="../static/images/layoutthumbs/vintage.jpg" title="vintage pix" alt="vintage pix" /></a>
+			<figcaption>Those thrilling days of yesteryear.</figcaption>
+		</figure>
+		<figure>
+            <a href="{{ url_for ('reunion2010') }}"><img src="../static/images/layoutthumbs/2010.jpg" title="reunion 2010" alt="reunion 2010" /></a>
+			<figcaption>Reunion 2010</figcaption>
+		</figure>
+		<figure>
+		    <a href="{{ url_for ('reunion2012') }}"><img src="../static/images/layoutthumbs/2012.jpg" title="reunion 2012" alt="reunion 2012" /></a>
+			<figcaption>Reunion 2012</figcaption>
+		</figure>
+		<figure>
+            <a href="{{ url_for ('tulsa2013') }}"><img src="../static/images/layoutthumbs/2013.jpg" title="tulsa 2013" alt="tulsa 2013" /></a>
+			<figcaption>Tulsa 2013</figcaption>
+		</figure>
+		<figure>
+		<a href="{{ url_for ('reunion2014') }}"><img src="../static/images/layoutthumbs/2014.jpg" title="reunion 2014" alt="reunion 2014" /></a>
+		<figcaption>Reunion 2014</figcaption>
+        </figure>
+		<figure>
+		    <a href="{{ url_for ('springdale2015') }}"><img src="../static/images/layoutthumbs/2015.jpg" title="springdale 2015" alt="springdale 2015" /></a>
+			<figcaption>Sprindale 2015</figcaption>
+		</figure>
+    </div>
+{% endblock %}

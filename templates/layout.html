@@ -73,7 +73,13 @@
     <div class="zerogrid">
         <div class="row">
             <div class="col05">
-                <div id="logo"><a href="{{ url_for('home') }}"><img src="../static/images/logo.png" alt="logo"/></a></div>
+                <div id="logo">
+                    {% if request.path == '/home/' or request.path == '/' %}
+                      <a href ="#"><img src="../static/images/logo.png" alt="logo"/></a>
+                    {% else %}
+                      <a href="{{ url_for('home') }}"><img src="../static/images/logo.png" alt="logo"/></a>
+                    {% endif %}
+                </div>
             </div>
         </div>
     </div>
@@ -83,117 +89,163 @@
 
 <nav>
 	<ul>
-  		<li {% if request.path == '/home/' or request.path == '/' %}class="active"{% endif %}>
-                    <a href="{{ url_for('home') }}">Home</a>
-                </li>
-		<li {% if request.path == '/recollections/' %}class="active"{% endif %}>
-                    <a href="{{ url_for('recollections') }}">Recollections</a>
-                </li>
-                <li {% if request.path == '/gallery/' %}class="active"{% endif %}>
-                    <a href="{{ url_for('gallery') }}">Gallery</a>
-                </li>
-		<li><a href="#">About</a></li>
-                <li {% if request.path == '/contact/' %}class="active"{% endif %}>
-                    <a href="{{ url_for('contact') }}">Contact</a>
-                </li>
+  		<li {% if request.path == '/home/' or request.path == '/' %}class="active">
+              <a href="#">Home</a>
+            {% else %}>
+              <a href="{{ url_for('home') }}">Home</a>
+            {% endif %}
+        </li>
+		<li {% if request.path == '/recollections/' %}class="active">
+              <a href="#">Recollections</a>
+            {% else %}>
+              <a href="{{ url_for('recollections') }}">Recollections</a>
+            {% endif %}
+        </li>
+        <li {% if request.path == '/galleries/' %}class="active">
+              <a href="#">Galleries</a>
+            {% else %}>
+              <a href="{{ url_for('galleries') }}">Galleries</a>
+            {% endif %}  
+        </li>
+        <li {% if request.path == '/lost_and_found/' %}class="active"}>
+              <a href="#">Lost And Found</a>
+            {% else %}>
+              <a href="{{ url_for('lost_and_found') }}">Lost And Found</a>
+            {% endif %}
+        </li>
+		<li {% if request.path == '/contact/' %}class="active">
+              <a href="#">Contact</a>
+            {% else %}>
+              <a href="{{ url_for('contact') }}">Contact</a>
+            {% endif %}
+        </li>
 	</ul>
 </nav>
 
 <section class="featured zerogrid">
-	
-		<div class="row">
-			<div class="col16">
-				<div class="rslides_container">
-					<ul class="rslides" id="slider">
-						<li><img src="../static/images/1.jpg" alt="NSU Centennial Plaza" height="292" width="640"/></li>
-						<li><img src="../static/images/2.jpg" alt="Baptist Student Center" height="292" width="640"/></li>
-						<li><img src="../static/images/3.jpg" alt="sidewalk view" height="292" width="640"/></li>
-						<li><img src="../static/images/4.jpg" alt="more Centennial Plaza" height="292" width="640"/></li>
-                                                <li><img src="../static/images/5.jpg" alt="sidewalk through foliage" height="292" width="640"/></li>
-					</ul>
-				</div>
-			</div>
-		</div>
-	
-</section>
-			
-<!--Content-->
-<section id="content">
-	<div class="zerogrid">
-		<div class="row block offbottom">
-			<div class="main-content col11">
-                            {% block body %}{% endblock %}
-			</div>
-			<div class="sidebar col05">
-				<section class="block1">
-					<div class="heading">About Me</div>
-					<div class="content">
-						I'm Matt Manos, a 1992 NSU grad and frequent fixture of the Baptist Student Union. I put this site together as memento of times past and solid friendships that continue to this day.
-					</div>
-				</section>
-				<section class="block1">
-					<div class="heading">Categories</div>
-					<div class="content">
-						<ul class="list">
-							<li><a href="http://www.zerotheme.com">Free Html5 Templates</a></li>
-							<li><a href="http://www.zerotheme.com">Free Css3 Templates</a></li>
-							<li><a href="http://www.zerotheme.com">Free Responsive Html5 Templates</a></li>
-							<li><a href="http://www.zerotheme.com">Free Basic Html5 Templates</a></li>
-							<li><a href="http://www.zerotheme.com">Free Layout Html5 Templates</a></li>
-						</ul>
-					</div>
-				</section>
-				<section class="block1">
-					<div class="heading">Links List</div>
-					<div class="content">
-					<ul class="list">
-						<li><a href="#">Free html5 templates</a></li>
-						<li><a href="#">Free css3 menus</a></li>
-						<li><a href="#">Free responsive html5 themes</a></li>
-						<li><a href="#">Free onepage html5 themes</a></li>
-						<li><a href="#">Free animated html5 themes</a></li>
-					</ul>
-					</div>
-				</section>
+    <div class="row">
+	    <div class="col16">
+		    <div class="rslides_container">
+			    <ul class="rslides" id="slider">
+				    <li><img src="../static/images/1.jpg" alt="NSU Centennial Plaza" height="292" width="640"/></li>
+					<li><img src="../static/images/2.jpg" alt="Baptist Student Center" height="292" width="640"/></li>
+					<li><img src="../static/images/3.jpg" alt="sidewalk view" height="292" width="640"/></li>
+					<li><img src="../static/images/4.jpg" alt="more Centennial Plaza" height="292" width="640"/></li>
+                    <li><img src="../static/images/5.jpg" alt="sidewalk through foliage" height="292" width="640"/></li>
+				</ul>
 			</div>
 		</div>
 	</div>
 </section>
+			
+<!--Content-->
+<section id="content">
+    <div class="zerogrid">
+	    <div class="row block offbottom">
+		    <div class="main-content col11">
+                {% block body %}{% endblock %}
+			</div>
+			    <div class="sidebar col05">
+				    <section class="block1">
+					    <div class="heading">Galleries</div>
+					        <div class="content">
+					            <ul class="list">
+						            <li><a href="{{ url_for ('vintage') }}">Vintage</a></li>
+		                            <li><a href="{{ url_for ('reunion2010') }}">Reunion 2010</a></li>
+						            <li><a href="{{ url_for ('reunion2012') }}">Reunion 2012</a></li>
+						            <li><a href="{{ url_for ('tulsa2013') }}">Tulsa 2013</a></li>
+						            <li><a href="{{ url_for ('reunion2014') }}">Reunion 2014</a></li>
+						            <li><a href="{{ url_for ('springdale2015') }}">Springdale 2015</a></li>
+						        </ul>
+					        </div>
+				    </section>
+                    <section class="block1">
+					    <div class="heading">Links List</div>
+					        <div class="content">
+					            <ul class="list">
+					                <li><a href="https://www.facebook.com/groups/61490360780/" target="_blank">NSU BSU On Facebook</a></li>
+						            <li><a href="http://www.nsubcm.com/" target="_blank">NSU Baptist Collegiate Ministries</a></li>
+						            <li><a href="https://www.facebook.com/nsubcm?fref=ts" target="_blank">NSU BCM On Facebook</a></li>
+						            <li><a href="https://www.nsuok.edu/" target="_blank">Northeastern State University</a></li>
+						            <li><a href="http://www.bgco.org/" >Oklahoma Baptist General Convention</a></li>						
+					            </ul>
+					        </div>
+				   </section>
+                   <section class="block1">
+					    <div class="heading">About Me</div>
+					        <div class="content">
+						        I'm Matt Manos, a 1992 NSU grad and frequent fixture of the Baptist Student Union. I put this site together as memento of times past and solid friendships that continue to this day.
+					        </div>
+				    </section>
+		    </div>
+	    </div>
+    </div>
+</section>
 <!--Footer-->
 <footer>
-	<div class="zerogrid">
-		<div class="row block2">
+    <div class="zerogrid">
+	    <div class="row block2">   
 			<section class="col-1-3">
-				<div class="heading">About Me</div>
+			    <div class="heading">Menu</div>
 				<div class="content">
-					I'm Matt Manos, a 1992 NSU grad and frequent fixture of the Baptist Student Union. I put this site together as memento of times past and solid friendships that continue to this day.
-				</div>
-			</section>
-			<section class="col-1-3">
-				<div class="heading">Categories</div>
-				<div class="content">
-					<ul>
-						<li><a href="http://www.zerotheme.com">Free Html5 Templates</a></li>
-						<li><a href="http://www.zerotheme.com">Free Css3 Templates</a></li>
-						<li><a href="http://www.zerotheme.com">Free Responsive Html5 Templates</a></li>
-						<li><a href="http://www.zerotheme.com">Free Basic Html5 Templates</a></li>
-						<li><a href="http://www.zerotheme.com">Free Layout Html5 Templates</a></li>
+				    <ul>
+                        <li>
+                            {% if request.path == '/home/' or request.path == '/' %}
+                              <a href="#">Home</a>
+                            {% else %}
+                              <a href="{{ url_for('home') }}">Home</a>
+                            {% endif %}
+                        </li>
+		                <li>
+                            {% if request.path == '/recollections/' %}
+                              <a href="#">Recollections</a>
+                            {% else %}
+                              <a href="{{ url_for('recollections') }}">Recollections</a>
+                            {% endif %}
+                        </li>
+                        <li>
+                            {% if request.path == '/galleries/' %}
+                              <a href="#">Galleries</a>
+                            {% else %}
+                              <a href="{{ url_for('galleries') }}">Galleries</a>
+                            {% endif %}
+                        </li>
+                        <li>
+                            {% if request.path == '/lost_and_found/' %}
+                              <a href="#">Lost And Found</a>
+                            {% else %}
+                              <a href="{{ url_for('lost_and_found') }}">Lost And Found</a>
+                            {% endif %}
+                        </li>
+                        <li>
+                            {% if request.path =='/contact/' %}
+                              <a href="#">Contact</a>
+                            {% else %}
+                              <a href="{{ url_for('contact') }}">Contact</a>
+                            {% endif %}
+                        </li>
 					</ul>
 				</div>
 			</section>
-			<section class="col-1-3">
-				<div class="heading">Featured Post</div>
+            <section class="col-1-3">
+			    <div class="heading">Disclaimer</div>
 				<div class="content">
-					<table>
-						<tr>
-							<td><img src="../static/images/thumb5.jpg" alt="thumb5"/></td>
-							<td><img src="../static/images/thumb6.jpg" alt="thumb6"/></td>
-							<td><img src="../static/images/thumb5.jpg" alt="thumb5"/></td>
+					Matt Manos has no formal or official affiliation with Northeastern State University, the Baptist General Convention of Oklahoma, or Baptist Collegiate Ministries (formerly known as the Baptist Student Union).
+				</div>
+			</section>
+            <section class="col-1-3">
+			    <div class="heading">Galleries</div>
+				<div class="content">
+				    <table>
+					    <tr>
+						    <td><a href="{{ url_for ('vintage') }}"><img src="../static/images/layoutthumbs/vintage_mini_thumb.jpg" title="vintage pix" alt="vintage"/></a></td>
+							<td><a href="{{ url_for ('reunion2010') }}"><img src="../static/images/layoutthumbs/2010_mini_thumb.jpg" title="2010 reunion" alt="2010"/></a></td>
+							<td><a href="{{ url_for ('reunion2012') }}"><img src="../static/images/layoutthumbs/2012_mini_thumb.jpg" title="2012 reunion" alt="2012"/></a></td>
 						</tr>
 						<tr>
-							<td><img src="../static/images/thumb6.jpg" alt="thumb6"/></td>
-							<td><img src="../static/images/thumb5.jpg" alt="thumb5"/></td>
-							<td><img src="../static/images/thumb6.jpg" alt="thumb6"/></td>
+							<td><a href="{{ url_for ('tulsa2013') }}"><img src="../static/images/layoutthumbs/2013_mini_thumb.jpg" title="tulsa 2013" alt="2013"/></a></td>
+							<td><a href="{{ url_for ('reunion2014') }}"><img src="../static/images/layoutthumbs/2014_mini_thumb.jpg" title="2014 reunion" alt="2014"/></a></td>
+							<td><a href="{{ url_for ('springdale2015') }}"><img src="../static/images/layoutthumbs/2015_mini_thumb.jpg" title="springdale 2015" alt="2015"/></a></td>
 						</tr>
 					</table>
 				</div>
@@ -203,8 +255,9 @@
 </footer>
 
 <div id="copyright">
-	<p>Copyright © 2014 - bsureunion.com</p>
+	<p>Copyright © 2015 - bsureunion.com</p>
 	<p><a href="http://www.zerotheme.com/432/free-responsive-html5-css3-website-templates.html" target="_blank">Free Responsive Html5 Templates</a> by <a href="http://www.zerotheme.com" target="_blank">Zerotheme.com</a></p>
 </div>
 
-</body></html>
+</body>
+</html>
