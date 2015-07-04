@@ -68,7 +68,7 @@ def contact():
           flash('All fields are required.')
           return render_template('contact.html', form=form)
     if form.validate_on_submit():
-        msg = Message(form.subject.data, sender='contact@bsureunion.com', recipients=['myopicjazz@gmail.com'])
+        msg = Message(form.subject.data, sender='contact@bsureunion.com', recipients=['myopicjazz@outlook.com'])
         msg.body = """
         From: %s <%s>
         %s
