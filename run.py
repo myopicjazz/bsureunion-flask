@@ -6,15 +6,15 @@ from flask.ext.mail import Message, Mail
 mail = Mail()
 app = Flask(__name__)
 
-app.secret_key = 'h@t3m0ng5TQ_'
+app.secret_key = 'secret'
 
 app.config['MAIL_SERVER'] = "smtp.gmail.com"
 app.config['MAIL_PORT'] = 465
 app.config['MAIL_USE_SSL'] = True
-app.config['MAIL_USERNAME'] = 'myopicjazz@gmail.com'
-app.config['MAIL_PASSWORD'] = 'dsokuyzpcqmaqskz'
+app.config['MAIL_USERNAME'] = 'me@gmail.com'
+app.config['MAIL_PASSWORD'] = '123'
 
-SECURITY_EMAIL_SENDER = 'myopicjazz@gmail.com'
+SECURITY_EMAIL_SENDER = 'me@gmail.com'
 
 mail.init_app(app)
 
@@ -68,7 +68,7 @@ def contact():
           flash('All fields are required.')
           return render_template('contact.html', form=form)
     if form.validate_on_submit():
-        msg = Message(form.subject.data, sender='contact@bsureunion.com', recipients=['myopicjazz@live.com'])
+        msg = Message(form.subject.data, sender='contact@bsureunion.com', recipients=['me@live.com'])
         msg.body = """
         From: %s <%s>
         %s
